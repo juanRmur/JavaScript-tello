@@ -15,6 +15,7 @@ Instalar node.js y FFmpeg (agregarlo al PATH de Windows)
 #### Navegador
 * Socket.io (cliente): Sockets Web para enviar/recibir datos desde el navegador.
 * FFmpeg*: Convertir el vídeo del dron.
+
 *Importante desactivar el Firewall de Windows o crear una regla.
 
 # Usando el código en Windows
