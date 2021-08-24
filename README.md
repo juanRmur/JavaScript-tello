@@ -51,4 +51,4 @@ Instalamos Termux* (emulador de linux) y a continuación Node.js y FFmpeg. Luego
 1. `npm start`
 1. Abrimos la app `dronTello`
 
-# License — WTFPL
+# Licencia — WTFPL
