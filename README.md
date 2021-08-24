@@ -1,4 +1,5 @@
 IMPORTANTE: Usa el código bajo tu propia responsabilidad.
+
 Instalar node.js y FFmpeg (agregarlo al PATH de Windows)
 
 
