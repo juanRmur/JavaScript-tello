@@ -1,0 +1,143 @@
+* {
+    font-family: 'Operator Mono', monospace;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'Operator Mono', monospace;
+    font-weight: 900;
+    font-size: 1em;
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: black;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    letter-spacing: 10px;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    margin: 2px;
+}
+
+h2 {
+    grid-column: 1 / -1;
+    background: grey;
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+    padding: 0.5rem;
+    color: white;
+ }
+
+.botones {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 3px;
+}
+
+button {
+    background: white;
+    border: 4px solid transparent;
+    color: black;
+    font-size: 1em;
+}
+  
+button:focus {
+    outline: 0;
+    border-color: #FF00F3;
+}
+
+.takeoff {
+    background: orange;
+}
+
+.land {
+    background: #00ff00;
+}
+
+.emergency {
+    font-weight: bold;
+    background: red;
+    text-transform: uppercase;
+    color: black;
+}
+
+.movimientosbasicos {
+    background: #3F5EFB;
+    color: white;
+}
+
+.bateria {
+    width: 100%;
+    height: 4.5em;
+    background: #BB7EFF;
+}
+
+.rotaciones90grados {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.rotaciones15grados {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.rotar {
+    background: #fff;
+    color: black;
+}
+
+.cajaaltura {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.altura {
+    background: #84E7FF;
+    color: black;
+}
+
+.cajaavelocidad {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.velocidad {
+    background: #FFEB3F;
+    color: black;
+ }
+
+.fa-undo, .fa-redo, .fa-angle-double-up, .fa-angle-double-down {
+    font-size: 150%;
+    margin-top: 0.5em;
+    padding-bottom: 0.25em;
+ }
+
+.flip {
+    background: #FFAC32;
+}
+
+.automatico {
+    background: #80FF60;
+}
+
+#enviandoComando, #respuestaDron, #retrasoComando, #voz {
+    color: white;
+}
+
+#video-canvas {
+    width: 500px; 
+    height: 360px;
+    background-color: #4A00E0;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pilotando un dron con JS! :D</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="img/png" href="img/dron.png">
+        <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="http://localhost:6767/socket.io/socket.io.js"></script>
+        <script src="js/mainVOZ.js"></script>
+    </head>
+    <body>
+        <h1>Tello</h1>
+        <div class="botones">
+            <button class="takeoff" onClick="enviarComando('takeoff', 'Despegar')">
+                <i class="fas fa-plane-departure fa-lg"></i><br />Despegar
+            </button>
+    
+            <button class="movimientosbasicos" onclick="enviarComando('forward 100', 'Adelante 100cm')">
+                <i class="fas fa-arrow-up fa-lg"></i><br />Adelante 100cm
+            </button>
+    
+            <button class="land" onClick="enviarComando('land', 'Aterrizar')">
+                <i class="fas fa-plane-arrival fa-lg"></i><br />Aterrizar
+            </button>
+    
+            <button class="movimientosbasicos" onClick="enviarComando('left 100', 'Izquierda 100cm')">
+                <i class="fas fa-arrow-left fa-lg"></i><br />Izquierda 100cm
+            </button>
+            <button class="emergency" onClick="enviarComando('emergency', 'Parar motores')">
+                <i class="fas fa-ban fa-lg"></i><br />¡¡ SOS !!
+            </button>
+    
+            <button class="movimientosbasicos" onClick="enviarComando('right 100', 'Derecha 100cm')">
+                <i class="fas fa-arrow-right fa-lg"></i><br />Derecha 100cm
+            </button>
+    
+            <div class="rotaciones90grados">
+                <button class="rotar" onClick="enviarComando('ccw 90', 'Giro izq 90°')">
+                    <i class="fas fa-undo"></i><br />90°
+                </button>
+                <button class="rotar" onClick="enviarComando('cw 90', 'Giro der 90°')">
+                    <i class="fas fa-redo"></i><br />90°
+                </button>
+            </div>
+    
+            <button class="movimientosbasicos" onClick="enviarComando('back 100', 'Atrás 100cm')">
+                <i class="fas fa-arrow-down fa-lg"></i><br />Atrás 100cm
+            </button>
+    
+            <div class="rotaciones15grados">
+                <button class="rotar" onClick="enviarComando('ccw 15', 'Giro izq 15°')">
+                    <i class="fas fa-undo"></i><br />15°
+                </button>
+                <button class="rotar" onClick="enviarComando('cw 15', 'Giro der 15°')">
+                    <i class="fas fa-redo"></i><br />15°
+                </button>
+            </div>
+    
+            <div class="cajaaltura">
+                <button class="altura" onClick="enviarComando('up 50', 'Subir 50cm')">
+                    <i class="fas fa-angle-double-up fa-lg"></i><br />50cm
+                </button>
+                <button class="altura" onClick="enviarComando('down 50', 'Bajar 50cm')">
+                    <i class="fas fa-angle-double-down fa-lg"></i><br />50cm
+                </button>
+            </div>
+    
+            <button class="bateria" onClick="enviarComando('battery?', 'Batería')">
+                <i class="fas fa-battery-three-quarters fa-lg"></i><br />Batería
+            </button>
+    
+            <div class="cajaavelocidad">
+                <button class="velocidad" onClick="enviarComando('speed 100', 'Vel. 100%')">
+                    <i class="fas fa-plus fa-lg"></i><br />Vel. 100%
+                </button>
+                <button class="velocidad" onClick="enviarComando('speed 50', 'Vel. 50%')">
+                    <i class="fas fa-minus fa-lg"></i><br />Vel. 50%
+                </button>
+            </div>
+    
+            <h2>Flips y vuelos automáticos</h2>
+            <button class="automatico" onClick="vueloPrueba()">
+                <i class="fas fa-wrench fa-lg"></i></i><br/>Prueba
+            </button>
+
+            <button class="flip" onClick="enviarComando('flip f', 'Flip Adelante')">
+                <i class="fas fa-chevron-circle-up fa-lg"></i><br />Flip Adelante
+            </button>
+
+            <button class="automatico" onClick="vueloRandom()">
+                <i class="far fa-laugh-wink fa-lg"></i><br/>Random
+            </button>
+
+            <button class="flip" onClick="enviarComando('flip l', 'Flip Izquierda')">
+                <i class="fas fa-chevron-circle-left fa-lg"></i><br />Flip Izquierda
+            </button>
+
+            <div class="cajaavelocidad">
+                <button class="empezar">
+                    <i class="fas fa-microphone fa-lg"></i></i><br />Encender
+                </button>
+                <button class="parar">
+                    <i class="fas fa-microphone-slash fa-lg"></i><br />Apagar
+                </button>
+            </div>
+
+            <button class="flip" onClick="enviarComando('flip r', 'Flip Dererecha')">
+                <i class="fas fa-chevron-circle-right fa-lg"></i><br />Flip Dererecha
+            </button>
+
+            <button class="automatico" onClick="vueloCuadrado()">
+                <div style="width:20px; height:20px; border:2px solid black; margin:0 auto;"></div>Cuadrado
+            </button>
+
+            <button class="flip" onClick="enviarComando('flip b', 'Flip Atrás')">
+                <i class="fas fa-chevron-circle-down fa-lg"></i><br />Flip Atrás
+            </button>
+
+            <button class="automatico" onClick="vueloRectangulo()">
+                <div style="width:40px; height:20px; border:2px solid black; margin:0 auto;"></div>Rectángulo
+            </button>
+        </div>
+        <p>
+            <div id=enviandoComando></div>
+            <div id=respuestaDron></div>
+            <div id=retrasoComando></div>
+            <div id=voz></div>
+        </p>
+        <!--Cámara-->
+        <canvas id="video-canvas"></canvas>
+	    <script type="text/javascript" src="js/jsmpeg.min.js"></script>
+	    <script type="text/javascript">
+            var canvas = document.getElementById('video-canvas');
+            var url = 'ws://localhost:3001/stream';
+            var player = new JSMpeg.Player(url, { canvas: canvas });
+        </script>
+    </body>
+</html>
