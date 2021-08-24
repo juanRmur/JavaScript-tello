@@ -16,7 +16,7 @@ Instalar node.js y FFmpeg (agregarlo al PATH de Windows)
 * Socket.io (cliente): Sockets Web para enviar/recibir datos desde el navegador.
 * FFmpeg*: Convertir el vídeo del dron.
 
-*Importante desactivar el Firewall de Windows o crear una regla.
+*Desactivar el Firewall de Windows o crear una regla.
 
 # Usando el código en Windows
 1. Conectate al WIFI del dron manualmente
@@ -39,7 +39,14 @@ Una vez hecho esto se puede usar el script .bat llamado `conexionDron` (cambiand
 
 # Usando el código en Android
 La aplicación ha sido creada con Apache Cordova.
-Instalamos Termux (emulador de linux) y a continuación Node.js y FFmpeg.
 
+Instalamos Termux* (emulador de linux) y a continuación Node.js y FFmpeg. Luego procedemos a instalar dronTello.apk*
+
+*Permitir que ambas aplicaciones no se cierren en segundo plano
+
+1. Conectate al WIFI del dron manualmente
+1. cd `conexionDron`
+1. `npm install`
+1. `npm start`
 
 # License — WTFPL
